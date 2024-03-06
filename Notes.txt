@@ -48,9 +48,13 @@ npm i react-router-dom
 //for desgin purpose ui
 npm i antd
 
+Api's 
+ for checking in POSTMAN Application
+http://localhost:8000/api/user/get-user-info-by-id
 
+http://localhost:8000/api/user/register
 
-
+http://localhost:8000/api/user/login
 
 -----------
 Database

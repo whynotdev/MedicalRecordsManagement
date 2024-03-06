@@ -52,7 +52,23 @@ font-size: 18px !important;
 .anchor:hover{
   /* text-decoration: underline ; */
 }
-
+.spinner-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.499);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.spinner-border{
+  width: 4rem !important;
+  height: 4rem !important;
+  color: white !important;
+}
 
 
 /* authentication pages*/
