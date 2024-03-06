@@ -1,12 +1,33 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
 function Login() {
+  const nav = useNavigate();
+  const onFinish = async (values) => {
+    console.log(values);
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/user/login",
+        values
+      );
 
-  const onFinish = (values) => {
-    
-    console.log("Received values of form :" ,values)
-  }
+      if (response.data.success) {
+        toast.success(response.data.message);
+        toast("Redirecting to Home Page");
+        //token data storing into local storage
+        localStorage.setItem("token", response.data.data);
+        nav("/");
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      // console.error("Error during Login:", error);
+      toast.error("Something went wrong");
+    }
+    // console.log("Received values of form :" ,values)
+  };
   return (
     <>
       <div className="register">
@@ -20,7 +41,9 @@ function Login() {
               <Input placeholder="Password" type="password" required />
             </Form.Item>
 
-            <Button className="primary-button my-3 mb-2 " htmlType="submit">Log In</Button>
+            <Button className="primary-button my-3 mb-2 " htmlType="submit">
+              Log In
+            </Button>
 
             <Link to="/register" className="anchor ">
               Don't have an Account? Register

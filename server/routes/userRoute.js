@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 //Register
 router.post("/register", async (req, res) => {
@@ -23,16 +24,50 @@ router.post("/register", async (req, res) => {
       .status(200)
       .send({ message: "User created successfully", success: true });
   } catch (error) {
+    console.log(error);
     res
       .status(500)
       .send({ message: "Error creating user", success: false, error });
   }
 });
 
+
+
+
 //Login
 router.post("/login", async (req, res) => {
   try {
-  } catch (error) {}
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res
+        .status(200)
+        .send({ message: "User does not exist", success: false });
+    }
+
+    const isMatch = await bcrypt.compare(req.body.password, user.password);
+    //now it is valid
+    if (!isMatch) {
+      return res
+        .status(200)
+        .send({ message: "Password is incorrect", success: false });
+    } else {
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: "1d",
+      });
+      res.status(200).send({
+        message: "Login successful",
+        success: true,
+        data: token,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ message: "Error logging in", success: false, error });
+  }
 });
+
+
 
 module.exports = router;

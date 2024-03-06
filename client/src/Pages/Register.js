@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 function Register() {
   const nav = useNavigate();
   const onFinish = async (values) => {
-    console.log(values);
+    // console.log(values);
     try {
       const response = await axios.post(
         "http://localhost:8000/api/user/register",
@@ -21,7 +21,7 @@ function Register() {
         toast.error(response.data.message);
       }
     } catch (error) {
-      console.error("Error during registration:", error);
+      // console.error("Error during registration:", error);
       toast.error("Something went wrong");
     }
 
