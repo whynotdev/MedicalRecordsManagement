@@ -12,7 +12,7 @@ function Login() {
   // console.log(loading);
   const nav = useNavigate();
   const onFinish = async (values) => {
-    console.log(values);
+    // console.log(values);
     try {
       dispatch(showLoading());
       const response = await axios.post(
