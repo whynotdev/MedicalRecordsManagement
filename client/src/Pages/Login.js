@@ -3,7 +3,10 @@ import { Button, Form, Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux';
 function Login() {
+  const { loading } = useSelector(state => state.alerts);
+  console.log(loading);
   const nav = useNavigate();
   const onFinish = async (values) => {
     console.log(values);
