@@ -1,0 +1,71 @@
+client side  
+---------------
+npx create-react-app client
+
+cd client 
+
+npm start
+
+
+
+
+------------
+Git ADD
+------------
+
+git init
+
+git remote add origin https://github.com/whynotdev/MedicalRecordsManagement.git
+
+git checkout -b main
+
+git add .
+
+git commit -m "Intial"
+
+git push -u origin main	
+
+
+
+-------------
+Backend
+-------------
+
+npm init -y
+
+npm i express mongoose dotenv jsonwebtoken nodemon
+
+script start nodemon server.js
+
+then create server through express
+
+
+src  then i creasted pages folder 
+login and src
+
+npm i react-router-dom
+
+//for desgin purpose ui
+npm i antd
+
+
+
+
+
+-----------
+Database
+-------------
+monogo atlas
+browse collection 
+new db
+then create new collection
+
+now add i mean connect into database
+
+import 
+
+require('dotenv').config()
+
+atlas to compass
+const connect = mongoose.connect(process.env.MONGO_URL)
+
