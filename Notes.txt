@@ -73,3 +73,17 @@ require('dotenv').config()
 atlas to compass
 const connect = mongoose.connect(process.env.MONGO_URL)
 
+assets
+
+
+<i class="ri-user-line"></i>
+
+<i class="ri-logout-circle-line"></i>
+
+<i class="ri-health-book-line"></i>
+
+<i class="ri-contacts-book-3-line"></i>
+
+<i class="ri-hospital-line"></i>
+
+<i class="ri-home-line"></i>

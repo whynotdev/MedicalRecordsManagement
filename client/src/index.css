@@ -37,8 +37,8 @@ label{
 }
 /*All primary button style here it is common*/
 .primary-button{
-background-color: rgb(10, 209, 142) !important;
-border-color: rgb(10, 209, 142)  !important;
+background-color: #005555 !important;
+border-color: #005555  !important;
 height: 40px !important;
 width: 100% !important;
 color: rgb(239, 228, 228) !important;
