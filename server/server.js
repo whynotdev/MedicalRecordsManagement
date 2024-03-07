@@ -16,6 +16,6 @@ app.use("/api/user", userRoute);
 
 const port = process.env.PORT || 8000;
 
-console.log(process.env.MONGO_URL);
+// console.log(process.env.MONGO_URL);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Layout.css";
-import { Link , useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Layout({ children }) {
+  const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const userMenu = [
     {
@@ -40,25 +41,40 @@ function Layout({ children }) {
           <div className="sidebar-header">
             {/* my logo need to add later*/}
             <h1>WN</h1>
-            <p>whyNotMed</p>
           </div>
           <div className="menu">
             {menuToBeRendered.map((menu) => {
-              const isActive = location.pathname === menu.path
+              const isActive = location.pathname === menu.path;
               return (
                 <div
                   className={`d-flex menu-item ${
-                    isActive && 'active-menu-item'
-                  }`}>
+                    isActive && "active-menu-item"
+                  }`}
+                >
                   <i className={menu.icon}></i>
-                  <Link to={menu.path}>{menu.name}</Link>
+                  {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
                 </div>
               );
             })}
           </div>
         </div>
         <div className="content">
-          <div className="header">header</div>
+          <div className="header">
+            {collapsed ? (
+              <i
+                class="ri-menu-2-line header-action-icons"
+                onClick={() => setCollapsed(false)}
+              ></i>
+            ) : (
+              <i
+                class="ri-close-line header-action-icons"
+                onClick={() => setCollapsed(true)}
+              ></i>
+            )}
+            {/* <div className="d-flex">
+            <i class="ri-notification-2-line"></i>
+            </div> */}
+          </div>
           <div className="body">{children}</div>
         </div>
       </div>

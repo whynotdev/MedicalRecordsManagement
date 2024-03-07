@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Layout from "../Components/Layout";
 
-
 function Home() {
   const getData = async () => {
     try {
@@ -20,14 +19,15 @@ function Home() {
       console.log(error);
     }
   };
-  
 
   useEffect(() => {
     getData();
   }, []);
-  return <Layout>
-    <h1>Homepage</h1>
-  </Layout>
+  return (
+    <Layout>
+      <h1>Homepage</h1>
+    </Layout>
+  );
 }
 
 export default Home;
