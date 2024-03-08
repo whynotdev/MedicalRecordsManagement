@@ -74,7 +74,7 @@ function Layout({ children }) {
             )}
             <div className="d-flex align-items-center px-4">
               <i className="ri-notification-2-line header-action-icons mr-2"></i>
-              <Link className="anchor" to='/profile'>{ user?.name}</Link>
+              <Link className="anchors" to='/profile'>{ user?.name}</Link>
             </div>
           </div>
           <div className="body">{children}</div>
