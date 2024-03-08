@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Layout.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Badge } from "antd";
 function Layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const { user } = useSelector((state) => state.user);
@@ -77,12 +78,15 @@ function Layout({ children }) {
                 </div>
               );
             })}
-            <div className={`d-flex menu-item `} onClick={() => {
-              localStorage.clear();
-              nav('/login');
-            }}>
-              <i className='ri-logout-circle-line'></i>
-              {!collapsed && <Link to='/login'>Logout</Link>}
+            <div
+              className={`d-flex menu-item `}
+              onClick={() => {
+                localStorage.clear();
+                nav("/login");
+              }}
+            >
+              <i className="ri-logout-circle-line"></i>
+              {!collapsed && <Link to="/login">Logout</Link>}
             </div>
           </div>
         </div>
@@ -100,7 +104,9 @@ function Layout({ children }) {
               ></i>
             )}
             <div className="d-flex align-items-center px-4">
-              <i className="ri-notification-2-line header-action-icons mr-2"></i>
+              <Badge count={user.unseenNotifications.length}>
+                <i className="ri-notification-2-line header-action-icons mr-2"></i>
+              </Badge>
               <Link className="anchors" to="/profile">
                 {user?.name}
               </Link>
