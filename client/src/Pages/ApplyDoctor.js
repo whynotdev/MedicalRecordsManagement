@@ -5,7 +5,7 @@ import { TimePicker } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { hideLoading, showLoading } from "../Redux/alertsSlice";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function ApplyDoctor() {
