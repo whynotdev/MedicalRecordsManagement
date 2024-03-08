@@ -7,7 +7,7 @@ function Layout({ children }) {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
   const nav = useNavigate();
-  console.log(user);
+  // console.log(user);
   const userMenu = [
     {
       name: "Home",

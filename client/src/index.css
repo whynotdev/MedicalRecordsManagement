@@ -10,7 +10,7 @@ input{
   border: 1px solid rgba(128, 128, 128, 0.516) !important;
   height: 40px !important;
 }
-input:focus{
+input:focus, .ant-picker{
   outline: none !important;
   box-shadow: none !important;
   border:1px solid grey !important;
@@ -23,7 +23,23 @@ label{
   margin:10px 0 !important;
 }
 
+.ant-picker-input input{
+  border: none !important;
+}
+.ant-picker{
+  border: 1px solid rgba(128, 128, 128, 0.516) !important;
+  height: 40px !important;
+}
 /*common styling*/
+.page-title{
+  font-size: 30px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.621);
+}
+.card-titleap{
+  font-size: 1.5rem;
+  color: grey;
+}
 .card-title{
   font-size: 1.5rem;
   font-weight: bold;
@@ -43,6 +59,16 @@ height: 40px !important;
 width: 100% !important;
 color: rgb(239, 228, 228) !important;
 font-size: 18px !important;
+/* width: max-content !important; */
+}
+.apply{
+  background-color: #005555 !important;
+border-color: #005555  !important;
+height: 40px !important;
+/* width: 100% !important; */
+color: rgb(239, 228, 228) !important;
+font-size: 18px !important;
+  width:max-content !important;
 }
 .anchor{
   color:black  ;
