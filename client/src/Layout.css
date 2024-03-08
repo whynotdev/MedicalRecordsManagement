@@ -13,7 +13,10 @@ min-height: 100%;
  
  
 }
-
+.logo{
+  color: white;
+  font-weight: bold;
+}
 
 .content{
   width: 100%;

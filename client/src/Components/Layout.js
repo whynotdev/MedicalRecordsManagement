@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "../Layout.css";
-import { Link, useLocation } from "react-router-dom";
-import{useSelector} from 'react-redux'
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
-  const {user} =useSelector((state)=>state.user)
+  const { user } = useSelector((state) => state.user);
   const location = useLocation();
+  const nav = useNavigate();
+  console.log(user);
   const userMenu = [
     {
       name: "Home",
@@ -23,25 +25,43 @@ function Layout({ children }) {
       icon: "ri-hand-heart-line",
     },
     {
-      name: "profile",
+      name: "Profile",
       path: "/profile",
       icon: "ri-user-line",
     },
+  ];
+
+  const adminMenu = [
     {
-      name: "Logout",
-      path: "/logout",
-      icon: "ri-logout-circle-line",
+      name: "Home",
+      path: "/",
+      icon: "ri-home-line",
+    },
+    {
+      name: "Users",
+      path: "/users",
+      icon: "ri-user-line",
+    },
+    {
+      name: "Doctors",
+      path: "/doctors",
+      icon: "ri-user-heart-line",
+    },
+    {
+      name: "Profile",
+      path: "/profile",
+      icon: "ri-user-line",
     },
   ];
 
-  const menuToBeRendered = userMenu;
+  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
   return (
     <div className="main p-2">
       <div className="d-flex layout">
         <div className="sidebar">
           <div className="sidebar-header">
             {/* my logo need to add later*/}
-            <h1>WN</h1>
+            <h1 className="logo">WN</h1>
           </div>
           <div className="menu">
             {menuToBeRendered.map((menu) => {
@@ -57,6 +77,13 @@ function Layout({ children }) {
                 </div>
               );
             })}
+            <div className={`d-flex menu-item `} onClick={() => {
+              localStorage.clear();
+              nav('/login');
+            }}>
+              <i className='ri-logout-circle-line'></i>
+              {!collapsed && <Link to='/login'>Logout</Link>}
+            </div>
           </div>
         </div>
         <div className="content">
@@ -68,13 +95,15 @@ function Layout({ children }) {
               ></i>
             ) : (
               <i
-                class="ri-close-line header-action-icons"
+                className="ri-close-line header-action-icons"
                 onClick={() => setCollapsed(true)}
               ></i>
             )}
             <div className="d-flex align-items-center px-4">
               <i className="ri-notification-2-line header-action-icons mr-2"></i>
-              <Link className="anchors" to='/profile'>{ user?.name}</Link>
+              <Link className="anchors" to="/profile">
+                {user?.name}
+              </Link>
             </div>
           </div>
           <div className="body">{children}</div>
