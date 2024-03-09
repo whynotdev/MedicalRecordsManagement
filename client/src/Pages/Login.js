@@ -23,7 +23,7 @@ function Login() {
 
       if (response.data.success) {
         toast.success(response.data.message);
-        toast("Redirecting to Home Page");
+        // toast("Redirecting to Home Page");
         //token data storing into local storage
         localStorage.setItem("token", response.data.data);
         nav("/");

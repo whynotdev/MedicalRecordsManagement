@@ -10,6 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ApplyDoctor from "./Pages/ApplyDoctor";
 import Notifications from "./Pages/Notifications";
+import UsersList from "./Pages/Admin/UsersList";
+import DoctorsList from "./Pages/Admin/DoctorsList";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -63,6 +65,23 @@ function App() {
               </ProtectedRoute>
             }
           />
+            <Route
+          path="/admin/userslist"
+          element={
+            <ProtectedRoute>
+              <UsersList />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/doctorslist"
+          element={
+            <ProtectedRoute>
+              <DoctorsList />
+            </ProtectedRoute>
+          }
+        />
         </Routes>
       </BrowserRouter>
     </>
