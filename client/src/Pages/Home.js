@@ -25,7 +25,7 @@ function Home() {
   }, []);
   return (
     <Layout>
-      <h1>Homepage</h1>
+      <h1 className="page-title">Homepage</h1>
     </Layout>
   );
 }

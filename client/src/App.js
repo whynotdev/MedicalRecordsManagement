@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ApplyDoctor from "./Pages/ApplyDoctor";
-
+import Notifications from "./Pages/Notifications";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -47,11 +47,19 @@ function App() {
               </ProtectedRoute>
             }
           />
-            <Route
+          <Route
             path="/apply-doctor"
             element={
               <ProtectedRoute>
-                <ApplyDoctor/>
+                <ApplyDoctor />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <ProtectedRoute>
+                < Notifications/>
               </ProtectedRoute>
             }
           />

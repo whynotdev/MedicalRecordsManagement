@@ -104,7 +104,10 @@ function Layout({ children }) {
               ></i>
             )}
             <div className="d-flex align-items-center px-4">
-              <Badge count={user?.unseenNotifications.length}>
+              <Badge
+                count={user?.unseenNotifications?.length}
+                onClick={() => nav("/notifications")}
+              >
                 <i className="ri-notification-2-line header-action-icons mr-2"></i>
               </Badge>
               <Link className="anchors" to="/profile">
