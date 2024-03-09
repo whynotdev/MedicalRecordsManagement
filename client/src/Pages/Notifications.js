@@ -41,7 +41,7 @@ function Notifications() {
       toast.error("Something went wrong");
     }
   };
-  //delte all
+  //delete all notification
   const deleteAll = async () => {
     try {
       dispatch(showLoading());
